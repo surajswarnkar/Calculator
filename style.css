@@ -1,0 +1,144 @@
+/* #calculator{
+    width: 110px;
+    height: 281px;
+    border: 2px solid black;
+}
+.button-container{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.button{
+    margin: 6px;
+    cursor: pointer;
+    padding:5px;
+}
+#display{
+    width: 87px;
+    margin: 7px 8px 8px 7px;
+} */
+
+
+
+
+
+
+
+/* Reset basic margins and paddings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Center the calculator on the page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a2e; /* Dark background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main calculator container */
+#calculator {
+    background-color: #16213e;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    width: 320px;
+}
+
+/* The screen/display */
+#display {
+    width: 100%;
+    height: 65px;
+    font-size: 32px;
+    text-align: right;
+    margin-bottom: 25px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0f3460;
+    color: #e94560;
+    box-shadow: inset 0 4px 8px rgba(0,0,0,0.2);
+    outline: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Container for the buttons using CSS Grid */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 12px;
+}
+
+/* Standard button styling */
+.button {
+    padding: 18px 0;
+    font-size: 22px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2a3158;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover and click effects */
+.button:hover {
+    background-color: #3b447a;
+    transform: translateY(-2px);
+}
+
+.button:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+/* --------------------------------------------------
+  REORDERING THE BUTTONS
+  --------------------------------------------------
+  Using :nth-child to select specific buttons from your HTML
+  and placing numbers on the left, operators on the right.
+*/
+
+/* Row 1: 7, 8, 9, / */
+.button:nth-child(8) { order: 1; }  /* 7 */
+.button:nth-child(9) { order: 2; }  /* 8 */
+.button:nth-child(10) { order: 3; } /* 9 */
+.button:nth-child(15) { order: 4; background-color: #e94560; } /* Division */
+
+/* Row 2: 4, 5, 6, * */
+.button:nth-child(5) { order: 5; }  /* 4 */
+.button:nth-child(6) { order: 6; }  /* 5 */
+.button:nth-child(7) { order: 7; }  /* 6 */
+.button:nth-child(14) { order: 8; background-color: #e94560; } /* Multiply */
+
+/* Row 3: 1, 2, 3, - */
+.button:nth-child(2) { order: 9; }  /* 1 */
+.button:nth-child(3) { order: 10; } /* 2 */
+.button:nth-child(4) { order: 11; } /* 3 */
+.button:nth-child(13) { order: 12; background-color: #e94560; } /* Subtract */
+
+/* Row 4: c, 0, =, + */
+.button:nth-child(1) { order: 13; background-color: #7a7a7a; } /* Clear */
+.button:nth-child(11) { order: 14; } /* 0 */
+.button:nth-child(16) { order: 15; background-color: #4caf50; } /* Equals */
+.button:nth-child(12) { order: 16; background-color: #e94560; } /* Add */
+
+/* Hover colors for operators and special buttons */
+.button:nth-child(12):hover, 
+.button:nth-child(13):hover, 
+.button:nth-child(14):hover, 
+.button:nth-child(15):hover {
+    background-color: #ff5e7e;
+}
+.button:nth-child(1):hover { background-color: #999; }
+.button:nth-child(16):hover { background-color: #66bb6a; }
